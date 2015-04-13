@@ -12,10 +12,9 @@ Map {
 // Political boundaries //
 
 #admin [maritime !=1 ]{
-  line-join: round;
-  line-color: #000000;
   // Countries
   [admin_level=2] {
+    line-join: round;
     line-color:orange;//#333;
     line-opacity:0.6;
     line-comp-op: multiply;
@@ -37,7 +36,8 @@ Map {
     }
   }
   // States / Provices / Subregions
-  [admin_level>=3] {
+  [zoom >=5][admin_level>=3] {
+    line-join: round;
     line-opacity:0.4;
     line-dasharray: 4,2;
     line-width: 0.6;
@@ -65,13 +65,15 @@ Map {
 
 
 // Places //
-/*
-#country_label[zoom>=3] {
+
+#country_label[zoom>=2][zoom<=4] {
   text-name: @name;
-  text-face-name: 'Source Sans Pro Bold';
+  text-face-name: 'Source Sans Pro Semibold';
   text-wrap-width: 100;
   text-wrap-before: true;
-  text-fill: #66a;
+  text-fill: #999999;
+  text-halo-radius: 1;
+  text-halo-fill: white;
   text-size: 12;
   [zoom>=3][scalerank=1],
   [zoom>=4][scalerank=2],
@@ -85,18 +87,19 @@ Map {
   [zoom>=7][scalerank>3] {
     text-size: 16;
   }
-}*/
+}
 
-#place_label {
+#place_label [zoom>=5]{
   [type='city'][zoom<=15] {
     text-halo-fill: white;
     text-halo-radius:  1;
     text-name: @name;
     text-face-name: 'Source Sans Pro Semibold';
     text-fill: #444;
-    text-size: 10;
+    text-size: 9;
     text-wrap-width: 100;
     text-wrap-before: true;
+    [zoom>=5] { text-size: 10; }
     [zoom>=8] { text-size: 14; }
     [zoom>=10] { text-size: 16; }
     [zoom>=12] { text-size: 18; }
