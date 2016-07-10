@@ -2,6 +2,7 @@
 
 A black/white, medium contrast basemap with admin boundaries, roads, very basic landuse coloring, and
 
+![thumbnail](./.thumb.png)
 
 ### Map Data Layers
 
