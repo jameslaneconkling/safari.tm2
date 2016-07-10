@@ -1,6 +1,6 @@
 # Safari
 
-A black/white, medium contrast basemap with admin boundaries, roads, very basic landuse coloring, and
+A black/white, medium contrast basemap with admin boundaries, roads, and very basic landuse coloring layers.
 
 
 ### Map Data Layers
