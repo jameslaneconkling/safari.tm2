@@ -9,9 +9,9 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - 19.4032
-  - 42.2361
-  - 10
+  - 19.3634
+  - 42.7208
+  - 8
 description: ''
 format: "png8:m=h"
 interactivity_layer: ''
@@ -40,6 +40,7 @@ layers:
   - water_label
   - road_label
   - waterway_label
+  - poi_label
 maxzoom: 22
 minzoom: 0
 name: F64

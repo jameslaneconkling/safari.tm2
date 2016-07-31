@@ -1,7 +1,9 @@
 // Languages: name (local), name_en, name_fr, name_es, name_de
 @name: '[name_en]';
 @font: 'Arial Unicode MS Regular'; //'Source Sans Pro Semibold';
-  
+@serif: 'Droid Serif Regular';
+@serif-bold: 'Droid Serif Bold';
+@serif-italic: 'Droid Serif Italic';
 @bg: #fff;
 
 @water: #d5e6e6; 
@@ -38,7 +40,7 @@ Map {
     line-color: #ccc; //#ffcd6a;
     line-join: round;
     line-cap: round;
-    line-smooth: 1;
+    //line-smooth: 1;
     line-opacity: 0.4;
     [zoom>=6] { line-width: 3; }
     [zoom>=9] { line-width: 3.2; }
@@ -51,7 +53,7 @@ Map {
     line-color: @admin-boundary;
     line-join: round;
     line-cap: round;
-    line-smooth: 1;
+    //line-smooth: 1;
     line-width: 1.5;
     [zoom>=7] { line-width: 1.5; }
     [zoom>=10] { line-width: 1.8; }
@@ -61,7 +63,7 @@ Map {
     line-color: white;
     line-join: round;
     line-cap: round;
-    line-smooth: 1;
+    //line-smooth: 1;
     line-width: 1;
     [zoom>=7] { line-width: 0.7; line-dasharray: 3,2; }
     [zoom>=9] { line-width: 0.8; line-dasharray: 4,2.5; }
