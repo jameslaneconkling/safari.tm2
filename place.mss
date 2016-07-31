@@ -97,32 +97,68 @@
 }
 */
 
-@fill: #666;
 @halo: @bg;
 
 #place_label {
-  text-face-name: 'Arial Unicode MS Regular';
+  /*
+  shield-file: url("img/dot-3.png");
+  shield-face-name: @font;
+  shield-name: @name;
+  shield-face-name: @sans;
+  shield-size: 12;
+  shield-fill: #444;
+  shield-halo-fill: @bg;
+  shield-halo-radius: 1;
+  shield-unlock-image: true;
+  shield-wrap-width: 80;
+  //shield-line-spacing: -2;
+  
+  // Fine-tune label positioning.
+  [ldir='E'] { shield-text-dx: 6; }
+  [ldir='W'] { shield-text-dx: -6; }
+  [ldir='N'] { shield-text-dy: -5; }
+  [ldir='S'] { shield-text-dy: 6; }
+  [ldir='NE'] { shield-text-dx: 3; shield-text-dy: -3; }
+  [ldir='SE'] { shield-text-dx: 3; shield-text-dy: 3; }
+  [ldir='SW'] { shield-text-dx: -3; shield-text-dy: 3; }
+  [ldir='NW'] { shield-text-dx: -3; shield-text-dy: -3; }
+
+  [zoom>=6] { shield-size: 14; }
+
+  // Emphasize major cities.
+  [scalerank<=6] { shield-size: 14; }
+  [zoom>=6][scalerank<=6] { shield-size: 16; } 
+  
+  shield-margin: 10;
+  */
+
+  text-face-name: @font;
   text-name: [name];
-  text-fill: @fill;
+  text-fill: #222;
   text-halo-fill: @halo;
   text-halo-radius: 1;
-  text-halo-opacity: 0.6;
-  text-dy: -5;
-  text-size: 6;
+  text-halo-opacity: 1;
+  //text-dy: -5;
+  text-size: 7;
+  text-margin: 20;
   [type='hamlet'] {
     // zoom 13+
+    text-fill: #666;
     [zoom=13] { text-size: 8; }
     [zoom=14] { text-size: 10; }
     [zoom>=15] { text-size: 13; }
   }
   [type='village'] { 
-    // zoom 10+
-    [zoom>=10] { text-size: 7; }
+    // zoom 9+
+    text-fill: #666;
+    [zoom>=9] { text-size: 8; }
+    [zoom>=10] { text-size: 9; }
     [zoom>=12] { text-size: 10; }
     [zoom>=14] { text-size: 12; }
   }
   [type='town'] { 
     // zoom 6+
+    text-fill: #444;
     [zoom>=6] { text-size: 7; }
     [zoom>=8] { text-size: 9; }
     [zoom>=10] { text-size: 11; }
@@ -138,10 +174,39 @@
     [zoom>=12] { text-size: 16; }
     [zoom>=14] { text-size: 18; }
   }
-  marker-width: 2;
-  marker-line-width: 0;
-  marker-fill: @fill;
+  //marker-width: 2;
+  //marker-line-width: 0;
+  //marker-fill: #444;
 }
+
+/*
+  shield-name: @name;
+  shield-face-name: @sans;
+  shield-size: 12;
+  shield-fill: @text;
+  shield-halo-fill: @land;
+  shield-halo-radius: 1;
+  shield-unlock-image: true;
+  shield-file: url("dot.svg");
+  shield-wrap-width: 80;
+  shield-line-spacing: -2;
+
+  // Fine-tune label positioning.
+  [ldir='E'] { shield-text-dx: 6; }
+  [ldir='W'] { shield-text-dx: -6; }
+  [ldir='N'] { shield-text-dy: -5; }
+  [ldir='S'] { shield-text-dy: 6; }
+  [ldir='NE'] { shield-text-dx: 3; shield-text-dy: -3; }
+  [ldir='SE'] { shield-text-dx: 3; shield-text-dy: 3; }
+  [ldir='SW'] { shield-text-dx: -3; shield-text-dy: 3; }
+  [ldir='NW'] { shield-text-dx: -3; shield-text-dy: -3; }
+
+  [zoom>=6] { shield-size: 14; }
+
+  // Emphasize major cities.
+  [scalerank<=6] { shield-size: 14; }
+  [zoom>=6][scalerank<=6] { shield-size: 16; } 
+*/
 
 #poi_label [maki='park'],
 #poi_label [type='Glacier'],
@@ -157,7 +222,7 @@
   [type='Island'],
   [type='Archipelago'],
   [maki='park'] { 
-    text-fill: #50877d;
+    text-fill: #222; //#50877d;
     text-line-spacing: 4;
     text-character-spacing: 1;
     [zoom < 10]{ text-size: 12; }
@@ -166,7 +231,7 @@
     [zoom >= 12]{ text-size: 22; }
   }
   [type='Glacier'] { 
-    text-fill: #777;
+    text-fill: #222;
     text-transform: uppercase;
     text-line-spacing: 4;
     text-character-spacing: 1;
@@ -174,7 +239,7 @@
   }
   [type='Peak'] { 
     text-face-name: @serif-bold;
-    text-fill: #222;
+    text-fill: #000;
     text-transform: uppercase;
     text-line-spacing: 6;
     text-character-spacing: 1;

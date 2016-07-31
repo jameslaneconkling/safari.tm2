@@ -5,7 +5,7 @@
 <Parameters>
   <Parameter name="attribution"><![CDATA[Map data © OpenStreetMap contributors]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">19.3634,42.7208,8</Parameter>
+  <Parameter name="center">24.4995,45.8403,7</Parameter>
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
@@ -81,14 +81,14 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landcover</StyleName>  </Layer>
 
-<Style name="hillshade" filter-mode="first">
+<Style name="hillshade-shadow" filter-mode="first">
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 56)</Filter>
-    <PolygonSymbolizer fill-opacity="0.2" fill="#000000" />
+    <PolygonSymbolizer fill-opacity="0.25" fill="#000000" />
   </Rule>
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 67)</Filter>
-    <PolygonSymbolizer fill-opacity="0.1" fill="#000000" />
+    <PolygonSymbolizer fill-opacity="0.15" fill="#000000" />
   </Rule>
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 78)</Filter>
@@ -105,8 +105,14 @@
 </Style>
 <Layer name="hillshade"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>hillshade</StyleName>  </Layer>
+    <StyleName>hillshade-shadow</StyleName>  </Layer>
 
+<Style name="landuse-pattern" filter-mode="first">
+  <Rule>
+    <Filter>([class] = 'wood')</Filter>
+    <PolygonPatternSymbolizer file="img/pattern/noise.png" />
+  </Rule>
+</Style>
 <Style name="landuse" filter-mode="first">
   <Rule>
     <Filter>([class] = 'rock')</Filter>
@@ -152,7 +158,7 @@
   </Rule>
   <Rule>
     <Filter>([class] = 'wood')</Filter>
-    <PolygonSymbolizer comp-op="multiply" fill="#d1e9d6" />
+    <PolygonSymbolizer comp-op="multiply" fill="#eeeeee" />
     <PolygonPatternSymbolizer file="img/pattern/noise.png" />
   </Rule>
   <Rule>
@@ -161,7 +167,8 @@
 </Style>
 <Layer name="landuse"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>landuse</StyleName>  </Layer>
+    <StyleName>landuse</StyleName>
+    <StyleName>landuse-pattern</StyleName>  </Layer>
 
 <Layer name="water"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -171,133 +178,133 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="3" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="2" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="0" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="3" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="2" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="0" stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0" stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-opacity="0.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-opacity="0.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([class] = 'stream_intermittent')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="2" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.8" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent')</Filter>
-    <LineSymbolizer stroke-width="1.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent')</Filter>
-    <LineSymbolizer stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="2" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1.8" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.8" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1.6" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.6" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="4" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="3" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="2" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1" stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke="#999999" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <LineSymbolizer stroke="#aeb5b5" stroke-linecap="round" />
+    <LineSymbolizer stroke="#999999" stroke-linecap="round" />
   </Rule>
 </Style>
 <Layer name="waterway"
@@ -306,17 +313,17 @@
 
 <Style name="water-line" filter-mode="first">
   <Rule>
-    <LineSymbolizer stroke="#aeb5b5" stroke-width="0.6" />
+    <LineSymbolizer stroke="#999999" stroke-width="0.6" />
   </Rule>
 </Style>
 <Style name="water-shadow" filter-mode="first" image-filters="agg-stack-blur(60,60)" comp-op="screen">
   <Rule>
-    <PolygonSymbolizer fill="#d5e6e6" />
+    <PolygonSymbolizer fill="#efefef" />
   </Rule>
 </Style>
 <Style name="water-fill" filter-mode="first">
   <Rule>
-    <PolygonSymbolizer fill="#d5e6e6" gamma="0.6" />
+    <PolygonSymbolizer fill="#efefef" gamma="0.8" />
   </Rule>
 </Style>
 <Layer name="water"
@@ -329,133 +336,133 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-linecap="square" stroke="#d5e6e6" />
+    <LineSymbolizer stroke-linecap="square" stroke="#efefef" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.5" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.2" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0.8" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.5" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.2" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0.8" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="3" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="2" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="0.6" stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0.6" stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <LineSymbolizer stroke="#d5e6e6" stroke-linecap="round" />
+    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
   </Rule>
 </Style>
 <Layer name="waterway"
@@ -484,47 +491,47 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'wetland_noveg')</Filter>
-    <PolygonSymbolizer fill="rgba(213, 230, 230, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_noveg_64.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'wetland_noveg')</Filter>
-    <PolygonSymbolizer fill="rgba(213, 230, 230, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_noveg_32.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'wetland_noveg')</Filter>
-    <PolygonSymbolizer fill="rgba(213, 230, 230, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_noveg_16.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'wetland')</Filter>
-    <PolygonSymbolizer fill="rgba(213, 230, 230, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_64.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'wetland')</Filter>
-    <PolygonSymbolizer fill="rgba(213, 230, 230, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_32.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'wetland')</Filter>
-    <PolygonSymbolizer fill="rgba(213, 230, 230, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_16.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
-    <Filter>([class] = 'breakwater')</Filter>
+    <Filter>([class] = 'pier')</Filter>
     <PolygonSymbolizer fill="#ffffff" clip="false" smooth="1" />
   </Rule>
   <Rule>
-    <Filter>([class] = 'pier')</Filter>
+    <Filter>([class] = 'breakwater')</Filter>
     <PolygonSymbolizer fill="#ffffff" clip="false" smooth="1" />
   </Rule>
   <Rule>
@@ -3292,145 +3299,129 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([type] = 'city')</Filter>
-    <TextSymbolizer size="18" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="18" face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'city')</Filter>
-    <TextSymbolizer size="16" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="16" face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'city')</Filter>
-    <TextSymbolizer size="14" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="14" face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'city')</Filter>
-    <TextSymbolizer size="12" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="12" face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'city')</Filter>
-    <TextSymbolizer size="10" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="10" face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([type] = 'city')</Filter>
-    <TextSymbolizer size="7" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="7" face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([type] = 'city')</Filter>
-    <TextSymbolizer face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" size="6" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" size="7" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([type] = 'town')</Filter>
-    <TextSymbolizer size="15" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="15" fill="#444444" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'town')</Filter>
-    <TextSymbolizer size="13" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="13" fill="#444444" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'town')</Filter>
-    <TextSymbolizer size="11" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="11" fill="#444444" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'town')</Filter>
-    <TextSymbolizer size="9" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="9" fill="#444444" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([type] = 'town')</Filter>
-    <TextSymbolizer size="7" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="7" fill="#444444" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([type] = 'town')</Filter>
-    <TextSymbolizer face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" size="6" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer fill="#444444" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" size="7" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([type] = 'village')</Filter>
-    <TextSymbolizer size="12" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="12" fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'village')</Filter>
-    <TextSymbolizer size="10" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="10" fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'village')</Filter>
-    <TextSymbolizer size="7" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="9" fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'village')</Filter>
-    <TextSymbolizer face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" size="6" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="8" fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([type] = 'village')</Filter>
+    <TextSymbolizer fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" size="7" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([type] = 'hamlet')</Filter>
-    <TextSymbolizer size="13" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="13" fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'hamlet')</Filter>
-    <TextSymbolizer size="10" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="10" fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'hamlet')</Filter>
-    <TextSymbolizer size="8" face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer size="8" fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'hamlet')</Filter>
-    <TextSymbolizer face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" size="6" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer fill="#666666" face-name="Arial Unicode MS Regular" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" size="7" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <TextSymbolizer face-name="Arial Unicode MS Regular" fill="#666666" halo-fill="#ffffff" halo-radius="1" halo-opacity="0.6" dy="-5" size="6" ><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer width="2" stroke-width="0" fill="#666666" />
+    <TextSymbolizer face-name="Arial Unicode MS Regular" fill="#222222" halo-fill="#ffffff" halo-radius="1" halo-opacity="1" size="7" margin="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="place_label"
@@ -3441,36 +3432,36 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#95c0c0" size="13" wrap-width="100" wrap-before="true" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#95c0c0" size="13" wrap-width="100" wrap-before="true" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#95c0c0" size="13" wrap-width="100" wrap-before="true" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#95c0c0" size="13" wrap-width="100" wrap-before="true" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#95c0c0" size="13" wrap-width="100" wrap-before="true" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#95c0c0" size="13" wrap-width="100" wrap-before="true" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#95c0c0" size="13" wrap-width="100" wrap-before="true" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="water_label"
@@ -3483,7 +3474,7 @@
 
 <Style name="waterway_label" filter-mode="first">
   <Rule>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#599696" placement="line" repeat-distance="200" size="8" halo-fill="#f5f9f9" halo-radius="1" ><![CDATA[[name_en]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#898989" placement="line" repeat-distance="200" size="8" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="waterway_label"
@@ -3494,134 +3485,134 @@
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([maki] = 'park') and ([type] = 'Peak')</Filter>
-    <TextSymbolizer size="8" face-name="Droid Serif Bold" fill="#222222" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="8" face-name="Droid Serif Bold" fill="#000000" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([maki] = 'park') and ([type] = 'Peak')</Filter>
-    <TextSymbolizer size="14" face-name="Droid Serif Bold" fill="#222222" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" face-name="Droid Serif Bold" fill="#000000" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([maki] = 'park') and ([type] = 'Peak')</Filter>
-    <TextSymbolizer size="12" face-name="Droid Serif Bold" fill="#222222" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" face-name="Droid Serif Bold" fill="#000000" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([type] = 'Peak')</Filter>
-    <TextSymbolizer size="8" face-name="Droid Serif Bold" fill="#222222" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="8" face-name="Droid Serif Bold" fill="#000000" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'Peak')</Filter>
-    <TextSymbolizer face-name="Droid Serif Bold" fill="#222222" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Bold" fill="#000000" text-transform="uppercase" line-spacing="6" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([maki] = 'park') and ([type] = 'Glacier')</Filter>
-    <TextSymbolizer size="14" fill="#777777" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([maki] = 'park') and ([type] = 'Glacier')</Filter>
-    <TextSymbolizer size="14" fill="#777777" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([maki] = 'park') and ([type] = 'Glacier')</Filter>
-    <TextSymbolizer size="12" fill="#777777" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#222222" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([type] = 'Glacier')</Filter>
-    <TextSymbolizer size="14" fill="#777777" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'Glacier')</Filter>
-    <TextSymbolizer fill="#777777" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer fill="#222222" text-transform="uppercase" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([type] = 'Archipelago') and ([maki] = 'park')</Filter>
-    <TextSymbolizer size="22" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="22" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'Archipelago') and ([maki] = 'park')</Filter>
-    <TextSymbolizer size="14" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'Archipelago') and ([maki] = 'park')</Filter>
-    <TextSymbolizer size="12" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([type] = 'Island') and ([maki] = 'park')</Filter>
-    <TextSymbolizer size="22" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="22" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'Island') and ([maki] = 'park')</Filter>
-    <TextSymbolizer size="14" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'Island') and ([maki] = 'park')</Filter>
-    <TextSymbolizer size="12" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([type] = 'Archipelago')</Filter>
-    <TextSymbolizer size="22" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="22" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'Archipelago')</Filter>
-    <TextSymbolizer size="14" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'Archipelago')</Filter>
-    <TextSymbolizer size="12" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([type] = 'Island')</Filter>
-    <TextSymbolizer size="22" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="22" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'Island')</Filter>
-    <TextSymbolizer size="14" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'Island')</Filter>
-    <TextSymbolizer size="12" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([maki] = 'park')</Filter>
-    <TextSymbolizer size="22" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="22" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([maki] = 'park')</Filter>
-    <TextSymbolizer size="14" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([maki] = 'park')</Filter>
-    <TextSymbolizer size="12" fill="#50877d" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" fill="#222222" line-spacing="4" character-spacing="1" wrap-width="40" halo-fill="#ffffff" halo-radius="1.2" halo-opacity="0.8" face-name="Droid Serif Regular" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="poi_label"

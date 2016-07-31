@@ -32,9 +32,8 @@ patterns
     [zoom>=14]{ line-width: 1.2; }
   }*/
   [class='agriculture'] {
-   // polygon-fill: #fafa9a;
-   // line-color: #e8e8a8;
-    line-color: #ccc;
+    polygon-fill: @agg; 
+    line-color: @agg-line;
     polygon-pattern-file: url(img/pattern/noise.png);
     [zoom<=9]{ line-width: 0.4; }
     [zoom=10]{ line-width: 0.4; }
@@ -44,9 +43,9 @@ patterns
     polygon-comp-op: multiply;
     polygon-pattern-file: url(img/pattern/noise.png);
     polygon-fill: @wood;
-    //::pattern {
-      //polygon-pattern-file: url(img/pattern/noise.png);
-    //}
+    ::pattern {
+      polygon-pattern-file: url(img/pattern/noise.png);
+    }
   }
   [class='scrub'] {
     //polygon-fill: red;
@@ -68,12 +67,7 @@ patterns
     //polygon-fill: orange;
   }
 }
-/*
-#landuse_overlay {
-  polygon-fill: #dfa;
-  polygon-comp-op: multiply;
-}
-*/
+
 
 #landcover {
   polygon-opacity: 0.6;

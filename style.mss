@@ -1,23 +1,28 @@
 // Languages: name (local), name_en, name_fr, name_es, name_de
-@name: '[name_en]';
+@name: '[name]';
 @font: 'Arial Unicode MS Regular'; //'Source Sans Pro Semibold';
 @serif: 'Droid Serif Regular';
 @serif-bold: 'Droid Serif Bold';
 @serif-italic: 'Droid Serif Italic';
 @bg: #fff;
 
-@water: #d5e6e6; 
-//@water: #efefef;
-@water-casing: #aeb5b5;
-//@water-casing: #999;
+//@water: #d5e6e6; 
+@water: #efefef;
+//@water-casing: #aeb5b5;
+@water-casing: #999;
 
 @road: #cacaca;
 @trail: #666;
 @admin-boundary: #444;
 
-//@wood:#eee;
-@wood: #d1e9d6;
+@wood:#eee;
+//@wood: #d1e9d6;
 @park: #b4e0b8;
+
+//@agg: #ffffda;
+@agg: transparent;
+//@agg-line: #d0d0ad;
+@agg-line: #ccc;
 
 Map {
   background-color: @bg;

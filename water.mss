@@ -1,6 +1,7 @@
 #water.fill::fill {
   polygon-fill: @water;
-  polygon-gamma: 0.6;
+  polygon-gamma: 0.8;
+  //polygon-pattern-file: url(img/pattern/wetland_noveg_32.png);
 }
 
 #water.fill::shadow {

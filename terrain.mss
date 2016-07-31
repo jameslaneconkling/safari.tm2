@@ -1,9 +1,19 @@
-#hillshade[class='shadow'] {
-  polygon-fill: black;
+/*
+#hillshade::highlight [class='highlight'] {
+  polygon-fill: #fffff0;
   [level=89] { polygon-opacity: 0.02; }
   [level=78] { polygon-opacity: 0.06; }
   [level=67] { polygon-opacity: 0.1; }
   [level=56] { polygon-opacity: 0.2; }
+}
+*/
+
+#hillshade::shadow[class='shadow'] {
+  polygon-fill: black;
+  [level=89] { polygon-opacity: 0.02; }
+  [level=78] { polygon-opacity: 0.06; }
+  [level=67] { polygon-opacity: 0.15; }
+  [level=56] { polygon-opacity: 0.25; }
 }
 
 #contour {
