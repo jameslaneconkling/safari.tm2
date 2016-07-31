@@ -4,15 +4,17 @@
   
 @bg: #fff;
 
-//@water: #cde2e2; 
-@water: #efefef;
-@water-casing: #999;//darken(@water, 30%);
+@water: #d5e6e6; 
+//@water: #efefef;
+@water-casing: #aeb5b5;
+//@water-casing: #999;
+
 @road: #cacaca;
 @trail: #666;
 @admin-boundary: #444;
 
-@wood:#eee;
-//@wood: #b4e0b8;
+//@wood:#eee;
+@wood: #d1e9d6;
 @park: #b4e0b8;
 
 Map {
