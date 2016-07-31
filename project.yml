@@ -1,5 +1,5 @@
 _prefs: 
-  mapid: james-lane-conkling.5630f970
+  mapid: null
   saveCenter: true
 _properties: {}
 attribution: Map data © OpenStreetMap contributors
@@ -9,20 +9,46 @@ bounds:
   - 180
   - 85.0511
 center: 
-  - 36.9031
-  - 34.4069
-  - 7
+  - 16.9052
+  - 43.8256
+  - 9
 description: ''
 format: "png8:m=h"
 interactivity_layer: ''
-layers: null
+layers: 
+  - contour
+  - landcover
+  - hillshade
+  - landuse
+  - water.casing
+  - waterway.casing
+  - water.fill
+  - waterway.fill
+  - aeroway
+  - barrier_line
+  - building
+  - landuse_overlay
+  - tunnel
+  - road
+  - bridge
+  - admin
+  - contour.label
+  - country_label_line
+  - country_label
+  - state_label
+  - place_label
+  - water_label
+  - road_label
+  - waterway_label
 maxzoom: 22
 minzoom: 0
-name: Safari
-source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v5,crowdcover.efad3d99"
+name: F64
+source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6"
 styles: 
   - style.mss
   - water.mss
   - terrain.mss
   - road.mss
+  - landuse.mss
+  - place.mss
 template: ''

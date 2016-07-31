@@ -1,41 +1,81 @@
-// Water Features //
-
-#water {
+#water.fill::fill {
   polygon-fill: @water;
   polygon-gamma: 0.6;
-  line-color:darken(@water,20%);
-  line-width:0.5;
-  [zoom>=6]{line-opacity:0.6;}
 }
 
-#water_label {
-  [zoom<=13],  // automatic area filtering @ low zooms
-  [zoom>=14][area>500000],
-  [zoom>=16][area>10000],
-  [zoom>=17] {
-    text-name: @name;
-    text-face-name: 'Source Sans Pro Italic';
-    text-fill: darken(@water, 40%);
-    text-size: 13;
-    text-wrap-width: 100;
-    text-wrap-before: true;
+#water.fill::shadow {
+  polygon-fill: @water;
+  // add texture
+  opacity:1;
+  comp-op: screen;
+  image-filters: agg-stack-blur(60,60);
+}
+
+#water.fill::line {
+  line-color:@water-casing;
+  line-width:0.6;
+}
+
+
+
+#waterway.casing::casing {
+  line-color: @water-casing;
+  line-cap: round;
+  [class='river'] {
+    [zoom>=8]{ line-width: 1; }
+    [zoom>=10]{ line-width: 2; }
+    [zoom>=12]{ line-width: 3; }
+    [zoom>=14]{ line-width: 4; }
+  }
+  [class='stream'],
+  [class='stream_intermittent'] {
+    comp-op: multiply;
+    [zoom>=13]{ line-width: 1.6; }
+    [zoom>=14]{ line-width: 1.8; }
+    [zoom>=15]{ line-width: 2; }
+  }
+  [class = 'drain'],
+  [class = 'canal'] {
+    [zoom>=8]{ line-width: 0; }
+    [zoom>=10]{ line-width: 1; }
+    [zoom>=12]{ line-width: 2; }
+    [zoom>=14]{ line-width: 3; }
+    line-opacity: 0.6;
   }
 }
 
-#waterway {
-  [type='river'],
-  [type='canal'] {
-    line-color: @water;
-    line-width: 0.5;
-    [zoom>=12] { line-width: 1; }
-    [zoom>=14] { line-width: 2; }
-    [zoom>=16] { line-width: 3; }
+#waterway.fill::fill {
+  line-color: @water;
+  line-cap: round;
+  [class='river'] {
+    [zoom>=8]{ line-width: 0.6; }
+    [zoom>=10]{ line-width: 1; }
+    [zoom>=12]{ line-width: 2; }
+    [zoom>=14]{ line-width: 3; }
   }
-  [type='stream'] {
-    line-color: @water;
-    line-width: 0.5;
-    [zoom>=14] { line-width: 1; }
-    [zoom>=16] { line-width: 2; }
-    [zoom>=18] { line-width: 3; }
+  [class='stream'],
+  [class='stream_intermittent '] {
+    [zoom>=13]{ line-width: 0.8; }
+    [zoom>=14]{ line-width: 1.2; }
+    [zoom>=15]{ line-width: 1.5; }
+  }
+  [class = 'drain'],
+  [class = 'canal'] {
+    [zoom>=8]{ line-width: 0.6; }
+    [zoom>=10]{ line-width: 0.5; }
+    [zoom>=12]{ line-width: 1; }
+    [zoom>=14]{ line-width: 1.5; }
+    //line-dasharray: 6,4;
+    line-cap: square;
   }
 }
+
+//#water {
+//  polygon-fill: @water;
+//  line-color: @water-casing;
+//  line-width: 0.4;
+//  [zoom>=8]{ line-width: 0.4; }
+//  [zoom>=10]{ line-width: 0.5; }
+//  [zoom>=12]{ line-width: 0.6; }
+//  [zoom>=14]{ line-width: 0.8; }
+//}

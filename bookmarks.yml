@@ -1,1 +1,32 @@
-[]
+- place_name: Croatia
+  zoom: 9
+  center: 
+    - 44.90549606158292
+    - 14.666748046875
+  tags: 
+    - userbookmark
+  index: 0
+- place_name: Grado, Gorizia, Italy
+  zoom: 13
+  center: 
+    - 45.72901131852933
+    - 13.288650512695312
+  tags: 
+    - userbookmark
+  index: 1
+- place_name: Desenzano del Garda - Riva del Garda, 25088 Toscolano-Maderno Brescia, Italy
+  zoom: 11
+  center: 
+    - 45.66132705384569
+    - 10.656051635742188
+  tags: 
+    - userbookmark
+  index: 2
+- place_name: Újsolt, Bács-Kiskun, Hungary
+  zoom: 11
+  center: 
+    - 46.85619998900065
+    - 19.090118408203125
+  tags: 
+    - userbookmark
+  index: 3
