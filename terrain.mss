@@ -10,13 +10,15 @@
 
 #hillshade::shadow[class='shadow'] {
   polygon-fill: black;
+  polygon-comp-op: multiply;
+  //image-filters: agg-stack-blur(5,5);
   [level=89] { polygon-opacity: 0.02; }
   [level=78] { polygon-opacity: 0.06; }
   [level=67] { polygon-opacity: 0.15; }
   [level=56] { polygon-opacity: 0.25; }
 }
 
-#contour {
+#contour.line {
   line-color: #666;
   line-opacity: 0.2;
   [zoom=9]{ line-width: 0.4; }

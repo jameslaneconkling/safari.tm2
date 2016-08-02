@@ -81,22 +81,6 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landcover</StyleName>  </Layer>
 
-<Style name="slope-pattern" filter-mode="first">
-  <Rule>
-    <PolygonPatternSymbolizer file="img/pattern/noise.png" smooth="1" />
-  </Rule>
-</Style>
-<Style name="slope" filter-mode="first">
-  <Rule>
-    <PolygonSymbolizer fill="#dddddd" comp-op="multiply" smooth="1" />
-    <PolygonPatternSymbolizer file="img/pattern/noise.png" smooth="1" />
-  </Rule>
-</Style>
-<Layer name="slope"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>slope</StyleName>
-    <StyleName>slope-pattern</StyleName>  </Layer>
-
 <Style name="hillshade-shadow" filter-mode="first">
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 56)</Filter>
