@@ -7,7 +7,7 @@
 @bg: #fff;
 
 //@water: #d5e6e6; 
-@water: #efefef;
+@water: #e0e0e0;
 //@water-casing: #aeb5b5;
 @water-casing: #999;
 

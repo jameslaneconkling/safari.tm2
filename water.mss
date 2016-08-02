@@ -1,10 +1,10 @@
-#water.fill::fill {
+#water::water-fill {
   polygon-fill: @water;
-  polygon-gamma: 0.8;
+  //polygon-gamma: 0.8;
   //polygon-pattern-file: url(img/pattern/wetland_noveg_32.png);
 }
 
-#water.fill::shadow {
+#water::water-shadow {
   polygon-fill: @water;
   // add texture
   opacity:1;
@@ -12,7 +12,7 @@
   image-filters: agg-stack-blur(60,60);
 }
 
-#water.fill::line {
+#water::water-line {
   line-color:@water-casing;
   line-width:0.6;
 }
@@ -70,13 +70,3 @@
     line-cap: square;
   }
 }
-
-//#water {
-//  polygon-fill: @water;
-//  line-color: @water-casing;
-//  line-width: 0.4;
-//  [zoom>=8]{ line-width: 0.4; }
-//  [zoom>=10]{ line-width: 0.5; }
-//  [zoom>=12]{ line-width: 0.6; }
-//  [zoom>=14]{ line-width: 0.8; }
-//}

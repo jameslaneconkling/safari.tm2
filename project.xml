@@ -5,7 +5,7 @@
 <Parameters>
   <Parameter name="attribution"><![CDATA[Map data © OpenStreetMap contributors]]></Parameter>
   <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
-  <Parameter name="center">24.4995,45.8403,7</Parameter>
+  <Parameter name="center">20.2972,42.9795,9</Parameter>
   <Parameter name="format">png8:m=h</Parameter>
   <Parameter name="maxzoom">22</Parameter>
   <Parameter name="minzoom">0</Parameter>
@@ -81,26 +81,42 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landcover</StyleName>  </Layer>
 
+<Style name="slope-pattern" filter-mode="first">
+  <Rule>
+    <PolygonPatternSymbolizer file="img/pattern/noise.png" smooth="1" />
+  </Rule>
+</Style>
+<Style name="slope" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="#dddddd" comp-op="multiply" smooth="1" />
+    <PolygonPatternSymbolizer file="img/pattern/noise.png" smooth="1" />
+  </Rule>
+</Style>
+<Layer name="slope"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>slope</StyleName>
+    <StyleName>slope-pattern</StyleName>  </Layer>
+
 <Style name="hillshade-shadow" filter-mode="first">
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 56)</Filter>
-    <PolygonSymbolizer fill-opacity="0.25" fill="#000000" />
+    <PolygonSymbolizer fill-opacity="0.25" fill="#000000" comp-op="multiply" />
   </Rule>
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 67)</Filter>
-    <PolygonSymbolizer fill-opacity="0.15" fill="#000000" />
+    <PolygonSymbolizer fill-opacity="0.15" fill="#000000" comp-op="multiply" />
   </Rule>
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 78)</Filter>
-    <PolygonSymbolizer fill-opacity="0.06" fill="#000000" />
+    <PolygonSymbolizer fill-opacity="0.06" fill="#000000" comp-op="multiply" />
   </Rule>
   <Rule>
     <Filter>([class] = 'shadow') and ([level] = 89)</Filter>
-    <PolygonSymbolizer fill-opacity="0.02" fill="#000000" />
+    <PolygonSymbolizer fill-opacity="0.02" fill="#000000" comp-op="multiply" />
   </Rule>
   <Rule>
     <Filter>([class] = 'shadow')</Filter>
-    <PolygonSymbolizer fill="#000000" />
+    <PolygonSymbolizer fill="#000000" comp-op="multiply" />
   </Rule>
 </Style>
 <Layer name="hillshade"
@@ -130,14 +146,14 @@
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([class] = 'agriculture')</Filter>
     <PolygonSymbolizer fill="rgba(0, 0, 0, 0)" />
-    <LineSymbolizer stroke-width="0.4" stroke="#cccccc" />
+    <LineSymbolizer stroke-width="0" stroke="#cccccc" />
     <PolygonPatternSymbolizer file="img/pattern/noise.png" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'agriculture')</Filter>
     <PolygonSymbolizer fill="rgba(0, 0, 0, 0)" />
-    <LineSymbolizer stroke-width="0.4" stroke="#cccccc" />
+    <LineSymbolizer stroke-width="0" stroke="#cccccc" />
     <PolygonPatternSymbolizer file="img/pattern/noise.png" />
   </Rule>
   <Rule>
@@ -169,10 +185,6 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landuse</StyleName>
     <StyleName>landuse-pattern</StyleName>  </Layer>
-
-<Layer name="water"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-      </Layer>
 
 <Style name="waterway-casing" filter-mode="first" comp-op="multiply">
   <Rule>
@@ -311,163 +323,163 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>waterway-casing</StyleName>  </Layer>
 
-<Style name="water-line" filter-mode="first">
-  <Rule>
-    <LineSymbolizer stroke="#999999" stroke-width="0.6" />
-  </Rule>
-</Style>
-<Style name="water-shadow" filter-mode="first" image-filters="agg-stack-blur(60,60)" comp-op="screen">
-  <Rule>
-    <PolygonSymbolizer fill="#efefef" />
-  </Rule>
-</Style>
-<Style name="water-fill" filter-mode="first">
-  <Rule>
-    <PolygonSymbolizer fill="#efefef" gamma="0.8" />
-  </Rule>
-</Style>
-<Layer name="water"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>water-fill</StyleName>
-    <StyleName>water-shadow</StyleName>
-    <StyleName>water-line</StyleName>  </Layer>
-
 <Style name="waterway-fill" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'drain')</Filter>
-    <LineSymbolizer stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="1.5" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="1" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="0.5" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-width="0.6" stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'canal')</Filter>
-    <LineSymbolizer stroke-linecap="square" stroke="#efefef" />
+    <LineSymbolizer stroke-linecap="square" stroke="#e0e0e0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.5" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.2" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0.8" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'stream_intermittent ')</Filter>
-    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.5" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="1.2" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1.2" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke-width="0.8" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0.8" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'stream')</Filter>
-    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="3" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="2" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="1" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke-width="0.6" stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke-width="0.6" stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([class] = 'river')</Filter>
-    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
   <Rule>
-    <LineSymbolizer stroke="#efefef" stroke-linecap="round" />
+    <LineSymbolizer stroke="#e0e0e0" stroke-linecap="round" />
   </Rule>
 </Style>
 <Layer name="waterway"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>waterway-fill</StyleName>  </Layer>
+
+<Style name="water-water-line" filter-mode="first">
+  <Rule>
+    <LineSymbolizer stroke="#999999" stroke-width="0.6" />
+  </Rule>
+</Style>
+<Style name="water-water-shadow" filter-mode="first" image-filters="agg-stack-blur(60,60)" comp-op="screen">
+  <Rule>
+    <PolygonSymbolizer fill="#e0e0e0" />
+  </Rule>
+</Style>
+<Style name="water-water-fill" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="#e0e0e0" />
+  </Rule>
+</Style>
+<Layer name="water"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>water-water-fill</StyleName>
+    <StyleName>water-water-shadow</StyleName>
+    <StyleName>water-water-line</StyleName>  </Layer>
 
 <Layer name="aeroway"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -491,39 +503,39 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'wetland_noveg')</Filter>
-    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(224, 224, 224, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_noveg_64.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'wetland_noveg')</Filter>
-    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(224, 224, 224, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_noveg_32.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'wetland_noveg')</Filter>
-    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(224, 224, 224, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_noveg_16.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([class] = 'wetland')</Filter>
-    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(224, 224, 224, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_64.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([class] = 'wetland')</Filter>
-    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(224, 224, 224, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_32.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([class] = 'wetland')</Filter>
-    <PolygonSymbolizer fill="rgba(239, 239, 239, 0.19999999999999996)" clip="false" smooth="1" />
+    <PolygonSymbolizer fill="rgba(224, 224, 224, 0.19999999999999996)" clip="false" smooth="1" />
     <PolygonPatternSymbolizer file="img/pattern/wetland_16.png" opacity="0.5" alignment="global" />
   </Rule>
   <Rule>
@@ -3244,43 +3256,8 @@
     <TextSymbolizer face-name="Open Sans Regular" repeat-distance="100" placement="line" size="8" fill="#666666" opacity="0.8" avoid-edges="true" halo-fill="#ffffff" halo-radius="1" halo-rasterizer="fast" ><![CDATA[[ele]+' m']]></TextSymbolizer>
   </Rule>
 </Style>
-<Style name="contour" filter-mode="first">
-  <Rule>
-    <Filter>([index] &gt;= 5)</Filter>
-    <LineSymbolizer stroke-opacity="0.15" stroke-width="1" stroke="#666666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <LineSymbolizer stroke-width="0.5" stroke="#666666" stroke-opacity="0.2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.5" stroke="#666666" stroke-opacity="0.2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.5" stroke="#666666" stroke-opacity="0.2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.4" stroke="#666666" stroke-opacity="0.2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="0.4" stroke="#666666" stroke-opacity="0.2" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <LineSymbolizer stroke="#666666" stroke-opacity="0.2" />
-  </Rule>
-</Style>
 <Layer name="contour"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>contour</StyleName>
     <StyleName>contour-label</StyleName>  </Layer>
 
 <Layer name="country_label_line"
@@ -3432,36 +3409,36 @@
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#adadad" size="13" wrap-width="100" wrap-before="true" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#adadad" size="13" wrap-width="100" wrap-before="true" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt; 500000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#adadad" size="13" wrap-width="100" wrap-before="true" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#adadad" size="13" wrap-width="100" wrap-before="true" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt; 10000)</Filter>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#adadad" size="13" wrap-width="100" wrap-before="true" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#adadad" size="13" wrap-width="100" wrap-before="true" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#bcbcbc" size="13" wrap-width="100" wrap-before="true" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#adadad" size="13" wrap-width="100" wrap-before="true" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="water_label"
@@ -3474,7 +3451,7 @@
 
 <Style name="waterway_label" filter-mode="first">
   <Rule>
-    <TextSymbolizer face-name="Droid Serif Italic" fill="#898989" placement="line" repeat-distance="200" size="8" halo-fill="#ffffff" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer face-name="Droid Serif Italic" fill="#7a7a7a" placement="line" repeat-distance="200" size="8" halo-fill="#fafafa" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="waterway_label"

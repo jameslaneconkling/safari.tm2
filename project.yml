@@ -1,29 +1,28 @@
-_prefs: 
+_prefs:
   mapid: null
   saveCenter: true
 _properties: {}
 attribution: Map data © OpenStreetMap contributors
-bounds: 
+bounds:
   - -180
   - -85.0511
   - 180
   - 85.0511
-center: 
-  - 24.4995
-  - 45.8403
-  - 7
+center:
+  - 20.2972
+  - 42.9795
+  - 9
 description: ''
 format: "png8:m=h"
 interactivity_layer: ''
-layers: 
-  - contour
+layers:
+  - contour.line
   - landcover
   - hillshade
   - landuse
-  - water.casing
   - waterway.casing
-  - water.fill
   - waterway.fill
+  - water
   - aeroway
   - barrier_line
   - building
@@ -45,7 +44,7 @@ maxzoom: 22
 minzoom: 0
 name: F64
 source: "mapbox:///mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6"
-styles: 
+styles:
   - style.mss
   - water.mss
   - terrain.mss
