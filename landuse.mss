@@ -35,8 +35,8 @@ patterns
     polygon-fill: @agg; 
     line-color: @agg-line;
     polygon-pattern-file: url(img/pattern/noise.png);
-    [zoom<=9]{ line-width: 0.4; }
-    [zoom=10]{ line-width: 0.4; }
+    [zoom<=9]{ line-width: 0; }
+    [zoom=10]{ line-width: 0; }
     [zoom>=11]{ line-width: 0.4; }
   }
   [class='wood'] {
