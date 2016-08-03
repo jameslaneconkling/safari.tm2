@@ -19,17 +19,16 @@
 }
 
 #slope {
-  polygon-fill: #ddd;
-  polygon-comp-op: multiply;
-  polygon-smooth: 1;
-  polygon-pattern-file: url(img/pattern/noise.png);
-  //polygon-pattern-comp-op: screen;
+  polygon-pattern-file: url(img/pattern/roads_30.svg);
+  //polygon-pattern-geometry-transform: scale(2,2);
+  polygon-pattern-comp-op: multiply;
+  polygon-pattern-opacity: 0.6;
   polygon-pattern-smooth: 1;
-  ::pattern {
-  polygon-pattern-file: url(img/pattern/noise.png);
-  //polygon-pattern-comp-op: screen;
-  polygon-pattern-smooth: 1;
-  }
+  //::pattern {
+  //polygon-pattern-file: url(img/pattern/noise.png);
+  ////polygon-pattern-comp-op: screen;
+  //polygon-pattern-smooth: 1;
+  //}
 }
 
 #contour.line {
